@@ -65,3 +65,11 @@ WeChatWin.dll+108F03F - 0F29 44 24 60         - movaps [rsp+60],xmm0
 WeChatWin.dll+108F044 - 0F29 45 80            - movaps [rbp-80],xmm0
 ```
 
+获取windows驱动限制规则
+```bash
+git clone https://github.com/mattifestation/WDACTools.git
+set-ExecutionPolicy RemoteSigned
+Import-Module .\WDACTools
+ConvertTo-WDACCodeIntegrityPolicy C:\Windows\System32\CodeIntegrity\driversipolicy.p7b C:\Windows\System32\CodeIntegrity\driversipolicy.xml
+ConvertFrom-CIPolicy -XmlFilePath C:\Windows\System32\CodeIntegrity\driversipolicy.xml -BinaryFilePath C:\Windows\System32\CodeIntegrity\driversipolicy.p7b
+```

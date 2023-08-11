@@ -3,12 +3,19 @@
 
 所有的特征搜索都来源于：WeChatWin.dll
 
+密码
+```ams
 48 8B C1 4C 8D 15 ???????? 49 83 F8 0F 0F87 ????0000 第二个参数是key，第三个参数key长度 call:WeChatWin.dll+2C7D590 
+```
  WeChatWin.dll地址
 
+调用者特征码
+```hex
 89 ?? ?? 74 13 ?? 8B C7 ?? 8B D6 ?? 8B C8 E8 ???????? E9
+```
 
 上述来源于搜索汇编：
+```asm
 mov [rbp+*],ebx
 je *
 mov r8,*
@@ -17,6 +24,7 @@ mov rcx,*
 call *
 jmp *
 
+```
 
 ```asm
 WeChatWin.dll+108EFAE - 4D 8B E6              - mov r12,r14
